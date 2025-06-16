@@ -1,9 +1,15 @@
 import 'dotenv/config';
-import { ChatOpenAI } from "@langchain/openai";
+import { Ollama } from "@langchain/ollama";
 import { HumanMessage, SystemMessage } from "@langchain/core/messages";
 import { ChatPromptTemplate, MessagesPlaceholder } from "@langchain/core/prompts";
 
-const model = new ChatOpenAI({ model: "gpt-4o-mini", apiKey: process.env.OPENAI_API_KEY });
+// const model = new ChatOpenAI({ model: "gpt-4o-mini", apiKey: process.env.OPENAI_API_KEY });
+
+const model = new Ollama({
+  model: "qwen2.5:7b-instruct", // Default value
+  temperature: 0,
+  maxRetries: 2,
+});
 
 const promptTemplate = ChatPromptTemplate.fromMessages([
   new SystemMessage("You talk like a pirate. Answer all questions to the best of your ability."),
@@ -11,7 +17,7 @@ const promptTemplate = ChatPromptTemplate.fromMessages([
 ]);
 
 const messages = [
-  new HumanMessage("hi!"),
+  new HumanMessage("Can you help me?"),
 ];
 
 const promptValue = await promptTemplate.invoke({msgs: messages});
