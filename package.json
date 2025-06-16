@@ -1,0 +1,20 @@
+{
+  "name": "langchain",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "resolutions": {
+    "@langchain/core": "^0.3.58"
+  },
+  "dependencies": {
+    "@langchain/community": "^0.3.46",
+    "@langchain/core": "^0.3.58",
+    "@langchain/openai": "^0.5.13",
+    "dotenv": "^16.5.0",
+    "langchain": "^0.3.28",
+    "pdf-parse": "^1.1.1"
+  }
+}
