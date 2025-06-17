@@ -6,7 +6,6 @@ import { Ollama, OllamaEmbeddings } from "@langchain/ollama";
 import { createRetrievalChain } from "langchain/chains/retrieval";
 import { createStuffDocumentsChain } from "langchain/chains/combine_documents";
 import { ChatPromptTemplate } from "@langchain/core/prompts";
-import { pull } from "langchain/hub";
 
 // Define embedded models
 const embeddings  = new OllamaEmbeddings({
@@ -102,4 +101,4 @@ const qaChain = await createQAChain(vectorStore);
 
 // // Ask questions
 // await askQuestion(qaChain, "Did Mr.Jayden work at Vuong Khuong?");
-await askQuestion(qaChain, "What state does Mr.Jayden live ?");
+await askQuestion(qaChain, "What is Mr.Jayden full name ?");
